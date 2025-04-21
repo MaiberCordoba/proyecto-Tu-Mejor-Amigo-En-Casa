@@ -1,0 +1,22 @@
+{
+  "name": "tu-mejor-amigo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaiberCordoba/proyecto-Tu-Mejor-Amigo-En-Casa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaiberCordoba/proyecto-Tu-Mejor-Amigo-En-Casa/issues"
+  },
+  "homepage": "https://github.com/MaiberCordoba/proyecto-Tu-Mejor-Amigo-En-Casa#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
