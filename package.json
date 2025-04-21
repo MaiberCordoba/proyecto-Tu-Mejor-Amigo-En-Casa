@@ -2,8 +2,12 @@
   "name": "tu-mejor-amigo",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type": "module",
+    "dev": "nodemon index.js"
+
   },
   "repository": {
     "type": "git",
@@ -17,6 +21,7 @@
   "homepage": "https://github.com/MaiberCordoba/proyecto-Tu-Mejor-Amigo-En-Casa#readme",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9"
   }
 }
