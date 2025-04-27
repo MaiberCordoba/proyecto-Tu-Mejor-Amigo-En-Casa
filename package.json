@@ -20,6 +20,7 @@
   "homepage": "https://github.com/MaiberCordoba/proyecto-Tu-Mejor-Amigo-En-Casa#readme",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^6.6.0",
     "express": "^5.1.0",
     "nodemon": "^3.1.9"
   },

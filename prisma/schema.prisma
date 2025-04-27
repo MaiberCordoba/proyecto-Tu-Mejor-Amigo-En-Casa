@@ -14,14 +14,46 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model RacesMJC{
+  id_RacesMJC Int @id @default(autoincrement())
+  name_RacesMJC String @db.VarChar(30)
+  petMJC PetMJC []
+}
+
+model CategoriesMJC{
+  id_CategoriesMJC Int @id @default(autoincrement())
+  name_CategoriesMJC String @db.VarChar(30)
+  petMJC PetMJC []
+}
+
+model GendersMJC{
+  id_GendersMJC Int @id @default(autoincrement())
+  name_GendersMJC String @db.VarChar(30)
+  petMJC PetMJC []
+}
+
+model PetMJC{
+  id_PetMJC Int @id @default(autoincrement())
+  name_PetsMJC String @db.VarChar(30)
+  photoMJC String @db.VarChar(300)
+  estadoMJC EstadoMJC @default(disponible)
+  fk_RacesMJC Int
+  fk_CategoriesMJC Int
+  fk_GendersMJC Int
+  races RacesMJC @relation(fields: [fk_RacesMJC], references: [id_RacesMJC])
+  categories CategoriesMJC @relation(fields: [fk_CategoriesMJC], references: [id_CategoriesMJC])
+  Genders GendersMJC @relation(fields: [fk_GendersMJC], references: [id_GendersMJC]) 
+}
+
 model UserMJC{
   idUserMJC Int @id @default(autoincrement())
   fullnameMJC  String @db.VarChar(50)
   email String @db.VarChar(32)
   password String @db.VarChar(64)
+
 }
 
-model PetMJC{
-  idPetMJC Int @id @default(autoincrement())
-  photo String @db.VarChar(300)
+enum EstadoMJC{
+  adoptado
+  disponible
 }
