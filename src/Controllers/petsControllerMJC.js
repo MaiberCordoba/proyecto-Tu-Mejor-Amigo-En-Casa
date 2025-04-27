@@ -16,3 +16,27 @@ export const listPetsMJC = async (resp, res) =>{
     }
 }
 
+export const PostPetsMJC = async (req, res) =>{
+    try {
+        const {name,race,category,gender,photo} = req.body
+        const consulta = await PrismaMJC.petMJC.create({
+            data: {
+                name_PetsMJC: name,
+                fk_RacesMJC: race,
+                fk_CategoriesMJC: category,
+                fk_GendersMJC: gender,
+                photoMJC: photo
+            }
+
+        })
+        if (consulta){
+            return res.status(201).json({message:"nueva mascota registrada con exito", data:consulta})
+        }else{
+            return res.status(400).json({message:"no fue posible registrar nueva mascota"})
+        
+        }
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({message:"error"})
+    }
+}
