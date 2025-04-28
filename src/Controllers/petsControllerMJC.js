@@ -1,4 +1,3 @@
-import { json } from "express";
 import { PrismaMJC } from "../dbMJC.js";
 
 export const listPetsMJC = async (resp, res) =>{
