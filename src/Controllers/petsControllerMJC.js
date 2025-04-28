@@ -66,3 +66,22 @@ export const patchPetsMJC = async (req,res)=>{
         return res.status(500).json({message:"error"})
     }
 }
+
+export const deletePetsMJC = async (req,res)=>{
+    try {
+        const consulta = await PrismaMJC.petMJC.delete({
+            where:{
+                id_PetMJC: parseInt(req.params.id)
+            }
+        })
+        if (consulta) {
+            return res.status(200).json({ message: "mascota eliminada con éxito", data: consulta });
+        }
+        else{
+            return res.status(404).json({ message: "no fue posible eliminar con exito" });
+        }
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({message:"sistema"})
+    }
+}
