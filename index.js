@@ -5,6 +5,8 @@ import cors from 'cors';
 import { route } from "./src/Routers/petsRouter.js";
 import { router } from "./src/Routers/racesRouter.js";
 import { routeCategory } from "./src/Routers/categoriesRouter.js";
+import { routerGenders } from "./src/Routers/gendersRouter.js";
+
 //inicializaciones
 const app = express()
 
@@ -20,7 +22,8 @@ app.use("/api",route);
 app.use("/api",router);
 //categories
 app.use("/api",routeCategory)
-
+//genders
+app.use("/api",routerGenders)
 
 app.listen(3000,()=>{
     console.log("3000")
