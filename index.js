@@ -3,6 +3,7 @@ import express from "express";
 import cors from 'cors';
 
 import { route } from "./src/Routers/petsRouter.js";
+import { router } from "./src/Routers/racesRouter.js";
 //inicializaciones
 const app = express()
 
@@ -15,7 +16,8 @@ app.use(express.urlencoded({extended:false}));
 
 //pets
 app.use("/api",route);
-
+//races
+app.use("/api",router);
 
 app.listen(3000,()=>{
     console.log("3000")
