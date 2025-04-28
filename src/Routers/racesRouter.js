@@ -1,6 +1,8 @@
 import { Router } from "express";
-import { getRacesMJC } from "../Controllers/racesControllerMJC.js   ";
+import { getRacesMJC, patchRacesMJC, PostRacesMJC } from "../Controllers/racesControllerMJC.js";
 
 export const router = Router();
 
-router.get('/races', getRacesMJC);
+router.get('/races',getRacesMJC);
+router.post('/races',PostRacesMJC);
+router.patch('/races/:id', patchRacesMJC);
