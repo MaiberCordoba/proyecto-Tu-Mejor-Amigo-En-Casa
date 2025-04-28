@@ -85,3 +85,21 @@ export const deletePetsMJC = async (req,res)=>{
         return res.status(500).json({message:"sistema"})
     }
 }
+
+export const getIdPetsMJC = async (req,res)=>{
+    try {
+        const consulta = await PrismaMJC.petMJC.findFirst({
+            where:{
+                id_PetMJC: parseInt(req.params.id)
+            },
+        });
+        if (consulta) {
+            return res.status(200).json(consulta)
+        }else{
+            return res.status(400).json({message:"no fue posible encontrar esta mascota"})
+        }
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({message:"sistema"})
+    }
+}
