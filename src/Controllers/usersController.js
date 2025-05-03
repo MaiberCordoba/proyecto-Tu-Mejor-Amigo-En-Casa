@@ -1,4 +1,5 @@
 import { PrismaMJC } from "../dbMJC.js";
+import bcrypt from 'bcrypt'
 
 export const getUsersMJC = async (req, res) =>{
     try {
@@ -17,11 +18,12 @@ export const getUsersMJC = async (req, res) =>{
 export const PostUsersMJC = async (req, res) =>{
     try {
         const {name,email,password} = req.body
+        const passwordHash =  await bcrypt.hash(password,10)
         const consulta = await PrismaMJC.userMJC.create({
             data: {
                 fullnameMJC: name,
                 email: email,
-                password: password,
+                password: passwordHash,
             }
 
         })
