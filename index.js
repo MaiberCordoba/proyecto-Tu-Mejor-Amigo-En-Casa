@@ -6,6 +6,7 @@ import { route } from "./src/Routers/petsRouter.js";
 import { router } from "./src/Routers/racesRouter.js";
 import { routeCategory } from "./src/Routers/categoriesRouter.js";
 import { routerGenders } from "./src/Routers/gendersRouter.js";
+import { rutaUser } from "./src/Routers/usersRouter.js";
 
 //inicializaciones
 const app = express()
@@ -24,6 +25,8 @@ app.use("/api",router);
 app.use("/api",routeCategory)
 //genders
 app.use("/api",routerGenders)
+//users
+app.use("/api",rutaUser)
 
 app.listen(3000,()=>{
     console.log("3000")
