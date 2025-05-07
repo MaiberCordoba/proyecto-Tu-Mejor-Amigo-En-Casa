@@ -17,14 +17,23 @@ export const listPetsMJC = async (resp, res) =>{
 
 export const PostPetsMJC = async (req, res) =>{
     try {
-        const {name,race,category,gender,photo} = req.body
+        const {name,race,category,gender} = req.body
+
+        // Verifica que se haya subido un archivo
+        if (!req.file) {
+            return res.status(400).json({ message: "Se requiere una imagen de la mascota" });
+          }
+        
+        const filePath = `/pets-photos/${req.file.filename}`;
+
         const consulta = await PrismaMJC.petMJC.create({
+            
             data: {
                 name_PetsMJC: name,
-                fk_RacesMJC: race,
-                fk_CategoriesMJC: category,
-                fk_GendersMJC: gender,
-                photoMJC: photo
+                fk_RacesMJC: parseInt(race),
+                fk_CategoriesMJC: parseInt(category),
+                fk_GendersMJC: parseInt(gender),
+                photoMJC: filePath
             }
 
         })
@@ -42,7 +51,15 @@ export const PostPetsMJC = async (req, res) =>{
 
 export const patchPetsMJC = async (req,res)=>{
     try {
-        const {name,race,category,gender,photo} = req.body
+        const {name,race,category,gender} = req.body
+
+        // Verifica que se haya subido un archivo
+        if (!req.file) {
+            return res.status(400).json({ message: "Se requiere una imagen de la mascota" });
+          }
+        
+        const filename = req.file.filename;
+
         const consulta = await PrismaMJC.petMJC.update({
             where:{
                 id_PetMJC: parseInt(req.params.id)
@@ -52,7 +69,7 @@ export const patchPetsMJC = async (req,res)=>{
                 fk_RacesMJC: race,
                 fk_CategoriesMJC: category,
                 fk_GendersMJC: gender,
-                photoMJC: photo
+                photoMJC: `/pets-photos/${filename}`
             }
         });
         if (consulta) {
