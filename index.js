@@ -1,6 +1,7 @@
 //importaciones
 import express from "express";
 import cors from 'cors';
+import path from 'path';
 
 import { route } from "./src/Routers/petsRouter.js";
 import { router } from "./src/Routers/racesRouter.js";
@@ -13,7 +14,10 @@ const app = express()
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:true}));
+
+// Esto hace accesibles las imágenes desde http://localhost:3000/pet-uploads/filename.jpg
+app.use("/pets-photos", express.static(path.join("public", "pets-photos")));
 
 //routes
 
