@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrar mascotas</title>
-    <link rel="stylesheet" href="styles/css.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="styles/administradorMascotas/administrarPets.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h1> Administrar Mascotas</h1>
-    
-        <div class="pet-list" id="pet-list">
-     
+      <!-- Encabezado: Título y botón de cerrar -->
+      <div class="header">
+        <h1 class="title">Administrar Mascotas</h1>
+        <button class="btn-close">
+          <img src="assets/icons/btn-close.svg" alt="Cerrar" />
+        </button>
+      </div>
+
+      <!-- Botón de adicionar -->
+      <div class="add-button-wrapper">
+        <button>
+          <img src="assets/icons/btn-add.svg" alt="Adicionar" />
+        </button>
+      </div>
+
+      <!-- Lista de mascotas -->
+      <div class="pet-list" id="pet-list">
+        <div class="pet-card">
+          <div class="imgPets">
+            <img src="./assets/pets/photo-sm-1.svg" alt="" />
+          </div>
+          <div class="pet-info">
+            <h3 class="pet-name">Karsten</h3>
+            <p class="pet-raze">Bulldog</p>
+          </div>
+          <div>
+            <button>
+              <img src="./assets/icons/btn-show.svg" alt="shearch-icon" />
+            </button>
+            <button>
+              <img src="./assets/icons/btn-edit.svg" alt="edi-icon" />
+            </button>
+            <button>
+              <img src="./assets/icons/btn-delete.svg" alt="delete-icon" />
+            </button>
+          </div>
         </div>
-    
+      </div>
     </div>
-
-    
-
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
