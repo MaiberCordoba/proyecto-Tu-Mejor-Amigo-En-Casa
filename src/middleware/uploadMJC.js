@@ -14,4 +14,4 @@ const storage = multer.diskStorage({
 });
 
 // Creamos el middleware de multer
-export const upload = multer({ storage });
+export const uploadMJC = multer({ storage });

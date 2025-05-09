@@ -1,121 +1,133 @@
 import { PrismaMJC } from "../dbMJC.js";
 
-export const listPetsMJC = async (resp, res) =>{
-    try {
-        const consulta = await PrismaMJC.petMJC.findMany()
-        if (consulta.length>0){
-            return res.status(200).json({"lista de mascotas":consulta})
-        }
-        else {
-            return res.status(404).json({message:"no se encontraron mascotas"})
-        }
-    } catch (error) {
-        console.error(error)
-        return res.status(500).json({message:"error"})
+export const listPetsMJC = async (resp, res) => {
+  try {
+    const consultaMJC = await PrismaMJC.petMJC.findMany();
+    if (consultaMJC.length > 0) {
+      return res.status(200).json({ "lista de mascotas": consultaMJC });
+    } else {
+      return res.status(404).json({ message: "no se encontraron mascotas" });
     }
-}
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "error" });
+  }
+};
 
-export const PostPetsMJC = async (req, res) =>{
-    try {
-        const {name,race,category,gender} = req.body
+export const PostPetsMJC = async (req, res) => {
+  try {
+    const { name, race, category, gender } = req.body;
 
-        // Verifica que se haya subido un archivo
-        if (!req.file) {
-            return res.status(400).json({ message: "Se requiere una imagen de la mascota" });
-          }
-        
-        const filePath = `/pets-photos/${req.file.filename}`;
-
-        const consulta = await PrismaMJC.petMJC.create({
-            
-            data: {
-                name_PetsMJC: name,
-                fk_RacesMJC: parseInt(race),
-                fk_CategoriesMJC: parseInt(category),
-                fk_GendersMJC: parseInt(gender),
-                photoMJC: filePath
-            }
-
-        })
-        if (consulta){
-            return res.status(201).json({message:"nueva mascota registrada con exito", data:consulta})
-        }else{
-            return res.status(400).json({message:"no fue posible registrar nueva mascota"})
-        
-        }
-    } catch (error) {
-        console.error(error)
-        return res.status(500).json({message:"error"})
+    // Verifica que se haya subido un archivo
+    if (!req.file) {
+      return res
+        .status(400)
+        .json({ message: "Se requiere una imagen de la mascota" });
     }
-}
 
-export const patchPetsMJC = async (req,res)=>{
-    try {
-        const {name,race,category,gender} = req.body
+    const filePathMJC = `/pets-photos/${req.file.filename}`;
 
-        // Verifica que se haya subido un archivo
-        if (!req.file) {
-            return res.status(400).json({ message: "Se requiere una imagen de la mascota" });
-          }
-        
-        const filename = req.file.filename;
-
-        const consulta = await PrismaMJC.petMJC.update({
-            where:{
-                id_PetMJC: parseInt(req.params.id)
-            },
-            data: {
-                name_PetsMJC: name,
-                fk_RacesMJC: race,
-                fk_CategoriesMJC: category,
-                fk_GendersMJC: gender,
-                photoMJC: `/pets-photos/${filename}`
-            }
-        });
-        if (consulta) {
-            return res.status(200).json({message:"editado con exito",data:consulta})
-        }else{
-            return res.status(400).json({message:"no fue posible editar"})
-        }
-    } catch (error) {
-        console.error(error)
-        return res.status(500).json({message:"error"})
+    const consultaMJC = await PrismaMJC.petMJC.create({
+      data: {
+        name_PetsMJC: name,
+        fk_RacesMJC: parseInt(race),
+        fk_CategoriesMJC: parseInt(category),
+        fk_GendersMJC: parseInt(gender),
+        photoMJC: filePathMJC,
+      },
+    });
+    if (consultaMJC) {
+      return res.status(201).json({
+        message: "nueva mascota registrada con exito",
+        data: consultaMJC,
+      });
+    } else {
+      return res
+        .status(400)
+        .json({ message: "no fue posible registrar nueva mascota" });
     }
-}
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "error" });
+  }
+};
 
-export const deletePetsMJC = async (req,res)=>{
-    try {
-        const consulta = await PrismaMJC.petMJC.delete({
-            where:{
-                id_PetMJC: parseInt(req.params.id)
-            }
-        })
-        if (consulta) {
-            return res.status(200).json({ message: "mascota eliminada con éxito", data: consulta });
-        }
-        else{
-            return res.status(404).json({ message: "no fue posible eliminar con exito" });
-        }
-    } catch (error) {
-        console.error(error)
-        return res.status(500).json({message:"sistema"})
-    }
-}
+export const patchPetsMJC = async (req, res) => {
+  try {
+    const { name, race, category, gender } = req.body;
 
-export const getIdPetsMJC = async (req,res)=>{
-    try {
-        const consulta = await PrismaMJC.petMJC.findFirst({
-            where:{
-                id_PetMJC: parseInt(req.params.id)
-            },
-        });
-        if (consulta) {
-            return res.status(200).json(consulta)
-        }else{
-            return res.status(400).json({message:"no fue posible encontrar esta mascota"})
-        }
-    } catch (error) {
-        console.error(error)
-        return res.status(500).json({message:"sistema"})
+    // Verifica que se haya subido un archivo
+    if (!req.file) {
+      return res
+        .status(400)
+        .json({ message: "Se requiere una imagen de la mascota" });
     }
-}
+
+    const filename = req.file.filename;
+
+    const consultaMJC = await PrismaMJC.petMJC.update({
+      where: {
+        id_PetMJC: parseInt(req.params.id),
+      },
+      data: {
+        name_PetsMJC: name,
+        fk_RacesMJC: parseInt(race),
+        fk_CategoriesMJC: parseInt(category),
+        fk_GendersMJC: parseInt (gender),
+        photoMJC: `/pets-photos/${filename}`,
+      },
+    });
+    if (consultaMJC) {
+      return res
+        .status(200)
+        .json({ message: "editado con exito", data: consultaMJC });
+    } else {
+      return res.status(400).json({ message: "no fue posible editar" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "error" });
+  }
+};
+
+export const deletePetsMJC = async (req, res) => {
+  try {
+    const consultaMJC = await PrismaMJC.petMJC.delete({
+      where: {
+        id_PetMJC: parseInt(req.params.id),
+      },
+    });
+    if (consultaMJC) {
+      return res
+        .status(200)
+        .json({ message: "mascota eliminada con éxito", data: consultaMJC });
+    } else {
+      return res
+        .status(404)
+        .json({ message: "no fue posible eliminar con exito" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "sistema" });
+  }
+};
+
+export const getIdPetsMJC = async (req, res) => {
+  try {
+    const consultaMJC = await PrismaMJC.petMJC.findFirst({
+      where: {
+        id_PetMJC: parseInt(req.params.id),
+      },
+    });
+    if (consultaMJC) {
+      return res.status(200).json(consultaMJC);
+    } else {
+      return res
+        .status(400)
+        .json({ message: "no fue posible encontrar esta mascota" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "sistema" });
+  }
+};

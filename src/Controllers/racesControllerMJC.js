@@ -2,9 +2,9 @@ import { PrismaMJC } from "../dbMJC.js";
 
 export const getRacesMJC =  async (req, res) => {
     try {
-        const consulta = await PrismaMJC.racesMJC.findMany()
-        if (consulta.length>0){
-            return res.status(200).json({message:"lista de razas",data:consulta})
+        const consultaMJC = await PrismaMJC.racesMJC.findMany()
+        if (consultaMJC.length>0){
+            return res.status(200).json({message:"lista de razas",data:consultaMJC})
         }else{
             return res.status(404).json({message:"razas no encontradas"})
         }
@@ -16,14 +16,14 @@ export const getRacesMJC =  async (req, res) => {
 export const PostRacesMJC = async (req, res) =>{
     try {
         const {name} = req.body
-        const consulta = await PrismaMJC.racesMJC.create({
+        const consultaMJC = await PrismaMJC.racesMJC.create({
             data: {
                 name_RacesMJC: name,
             }
 
         })
-        if (consulta){
-            return res.status(201).json({message:"nueva raza registrada con exito", data:consulta})
+        if (consultaMJC){
+            return res.status(201).json({message:"nueva raza registrada con exito", data:consultaMJC})
         }else{
             return res.status(400).json({message:"no fue posible registrar nueva raza"})
         
@@ -37,7 +37,7 @@ export const PostRacesMJC = async (req, res) =>{
 export const patchRacesMJC = async (req,res)=>{
     try {
         const {name} = req.body
-        const consulta = await PrismaMJC.racesMJC.update({
+        const consultaMJC = await PrismaMJC.racesMJC.update({
             where:{
                 id_RacesMJC: parseInt(req.params.id)
             },
@@ -46,8 +46,8 @@ export const patchRacesMJC = async (req,res)=>{
                 
             }
         });
-        if (consulta) {
-            return res.status(200).json({message:"editado con exito",data:consulta})
+        if (consultaMJC) {
+            return res.status(200).json({message:"editado con exito",data:consultaMJC})
         }else{
             return res.status(400).json({message:"no fue posible editar"})
         }

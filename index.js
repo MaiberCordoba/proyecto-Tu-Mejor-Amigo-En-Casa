@@ -3,11 +3,11 @@ import express from "express";
 import cors from 'cors';
 import path from 'path';
 
-import { route } from "./src/Routers/petsRouter.js";
-import { router } from "./src/Routers/racesRouter.js";
-import { routeCategory } from "./src/Routers/categoriesRouter.js";
-import { routerGenders } from "./src/Routers/gendersRouter.js";
-import { rutaUser } from "./src/Routers/usersRouter.js";
+import { route } from "./src/Routers/petsRouterMJC.js";
+import { router } from "./src/Routers/racesRouterMJC.js";
+import { routeCategory } from "./src/Routers/categoriesRouterMJC.js";
+import { routerGenders } from "./src/Routers/gendersRouterMJC.js";
+import { rutaUser } from "./src/Routers/usersRouterMJC.js";
 
 //inicializaciones
 const app = express()
