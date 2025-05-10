@@ -35,7 +35,7 @@ form button {
   margin-bottom: 1em;
   border: none;
   border-radius: 20px;
-  font-size: clamp(14px, 2.5vw, 18px); /* Escala según tamaño de pantalla */
+  font-size: clamp(14px, 2.5vw, 18px);
 }
 
 form button {
