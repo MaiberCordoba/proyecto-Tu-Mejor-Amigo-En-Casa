@@ -18,8 +18,7 @@ body {
 }
 
 .container {
-  background-color: aqua;
-  width: 90%; /* Ocupa el 90% del ancho del body (no estará pegado a los bordes) */
+  width: 87%; /* Ocupa el 90% del ancho del body (no estará pegado a los bordes) */
   margin: 30px auto; /* Centrado horizontal (0: margen vertical, auto: margen horizontal automático) */
 }
 
@@ -28,7 +27,6 @@ body {
   justify-content: center; /* Centra el título */
   align-items: center;
   position: relative; /* Importante para el botón absoluto */
-  padding: 10px 0; /* Espacio interno vertical */
 }
 
 .title {
@@ -42,11 +40,10 @@ body {
 .btn-close {
   position: absolute;
   right: 0; /* Lo coloca al extremo derecho */
-  padding: 8px; /* Área clickeable más grande */
 }
 
 .add-button-wrapper {
   display: flex; /* Activa Flexbox */
   justify-content: center; /* Centra el botón */
-  margin-top: 30px; /* Separa el botón del título (ajusta el valor según necesites) */
+  margin-top: 50px; /* Separa el botón del título (ajusta el valor según necesites) */
 }

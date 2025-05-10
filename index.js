@@ -32,6 +32,6 @@ app.use("/api",routerGenders)
 //users
 app.use("/api",rutaUser)
 
-app.listen(3000,()=>{
+app.listen(3000,'192.168.1.104',()=>{
     console.log("3000")
 })
