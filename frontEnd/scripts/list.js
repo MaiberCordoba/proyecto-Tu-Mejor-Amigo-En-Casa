@@ -38,18 +38,17 @@ function mostrarMascotas(mascotas) {
     return `
       <div class="${cardType}">
         <div class="imgPets">
-          <img src="${fotoUrl}" alt="${mascota.name_PetsMJC}" 
-               onerror="this.src='./assets/pets/photo-sm-1.svg'">
+          <img src="${fotoUrl}" alt="${mascota.name_PetsMJC}">
         </div>
         <div class="pet-info">
           <h3 class="pet-name">${mascota.name_PetsMJC}</h3>
           <p class="pet-raze">${mascota.fk_RacesMJC || "Sin raza"}</p>
         </div>
         <div class="buttons-options">
-          <button><img src="./assets/icons/btn-show.svg" alt="Ver"></button>
-          <button><img src="./assets/icons/btn-edit.svg" alt="Editar"></button>
+          <button><img src="../assets/icons/btn-show.svg" alt="Ver"></button>
+          <button><img src="../assets/icons/btn-edit.svg" alt="Editar"></button>
           <button onclick="eliminarMascota('${mascota.id_PetMJC}')">
-            <img src="./assets/icons/btn-delete.svg" alt="Eliminar">
+            <img src="../assets/icons/btn-delete.svg" alt="Eliminar">
           </button>
         </div>
       </div>
