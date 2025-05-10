@@ -30,10 +30,11 @@ async function loginMJC(e) {
         const responseData = await response.json();
         console.log("response ", responseData.data)
 
-        if (!response) {
+        if (!response.ok) {
             document.getElementById("error").innerHTML ='credenciales incorrectas';
             return;
         }
+
 
         // Almacenamos el token
         localStorage.setItem('token', responseData.data);
