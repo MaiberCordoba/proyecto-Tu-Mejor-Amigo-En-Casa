@@ -1,6 +1,6 @@
 document.getElementById("pet-list").innerHTML = '...cargando';
 
-// Función principal
+
 async function cargarMascotas() {
   try {
     const response = await fetch(`${API_URL}/api/pets`);
@@ -8,7 +8,7 @@ async function cargarMascotas() {
     const data = await response.json();
     const mascotas = data["lista de mascotas"] ;
     
-    // Mostrar mascotas
+   
     mostrarMascotas(mascotas);
     
   } catch(error) {
@@ -17,7 +17,7 @@ async function cargarMascotas() {
   }
 }
 
-// Mostrar las mascotas (manteniendo tus cards originales)
+
 function mostrarMascotas(mascotas) {
   const petList = document.getElementById("pet-list");
   

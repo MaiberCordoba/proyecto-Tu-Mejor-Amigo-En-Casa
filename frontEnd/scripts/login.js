@@ -10,10 +10,8 @@ async function loginMJC(e) {
     try {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-       
         
-
-        // Validación básica de campos vacíos
+        // Validación 
         if (!email || !password) {
             document.getElementById("error").innerHTML ='Por favor complete todos los campos';
             return;
@@ -32,22 +30,15 @@ async function loginMJC(e) {
         const responseData = await response.json();
         console.log("response ", responseData.data)
 
-        if (!response.ok) { // Verificamos el status code HTTP
-            // Mostramos el mensaje de error del servidor o uno genérico
+        if (!response) {
             document.getElementById("error").innerHTML ='credenciales incorrectas';
-            return;
-        }
-
-        // Verificamos que realmente venga el token
-        if (!responseData.data) {
-            document.getElementById("error").innerHTML ='error no token';
             return;
         }
 
         // Almacenamos el token
         localStorage.setItem('token', responseData.data);
         
-        // Redirigimos al usuario
+     
         window.location.href = '/frontEnd/pages/list.html';
 
     } catch (error) {
