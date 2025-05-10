@@ -2,36 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administrar mascotas</title>
-    <link
-      rel="stylesheet"
-      href="styles/administradorMascotas/administrarPets.css"
-    />
-    <link rel="stylesheet" href="styles/administradorMascotas/listPets.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <title>login-pets</title>
+    <link rel="stylesheet" href="styles/login/login.css"/>
   </head>
   <body>
     <div class="container">
-      <!-- Encabezado: Título y botón de cerrar -->
-      <div class="header">
-        <h1 class="title">Administrar Mascotas</h1>
-        <button class="btn-close">
-          <img src="assets/icons/btn-close.svg" alt="Cerrar" />
-        </button>
-      </div>
+      
+      <form id="loginForm">
+        <input id="email" type="email" placeholder="Correo Electrónico" required>
+        <input id='password' type="password" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+        <p id="error"></p>
+      </form>
 
-      <!-- Botón de adicionar -->
-      <div class="add-button-wrapper">
-        <button>
-          <img src="assets/icons/btn-add.svg" alt="Adicionar" />
-        </button>
-      </div>
+      
 
-      <!-- Lista de mascotas -->
-      <div class="pet-list" id="pet-list">
-        
     </div>
     <script src="scripts/config.js"></script>
-    <script src="scripts/list.js"></script>
+    <script src="scripts/login.js"></script>
   </body>
 </html>

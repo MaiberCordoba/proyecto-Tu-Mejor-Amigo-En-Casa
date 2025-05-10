@@ -16,7 +16,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-// Esto hace accesibles las imágenes desde http://localhost:3000/pet-uploads/filename.jpg
 app.use("/pets-photos", express.static(path.join("public", "pets-photos")));
 
 //routes
