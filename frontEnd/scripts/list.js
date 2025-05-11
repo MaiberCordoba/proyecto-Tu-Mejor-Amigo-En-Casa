@@ -7,28 +7,24 @@ async function cargarMascotas() {
     
     const data = await response.json();
     const mascotas = data["lista de mascotas"] ;
-    
-   
+ 
     mostrarMascotas(mascotas);
+
     
   } catch(error) {
     console.error(error);
-    document.getElementById("pet-list").innerHTML = '<p class="error">Error al cargar las mascotas</p>';
+    document.getElementById("pet-list").innerHTML =  `
+    <div class="pet-card-inpar">
+        <h3 class="pet-name">No hay mascotas</h3>
+    </div>
+  `;
   }
 }
 
 
 function mostrarMascotas(mascotas) {
-  const petList = document.getElementById("pet-list");
   
-  if(mascotas.length === 0) {
-    petList.innerHTML = `
-      <div class="pet-card-inpar">
-          <h3 class="pet-name">No hay mascotas</h3>
-      </div>
-    `;
-    return;
-  }
+  const petList = document.getElementById("pet-list");
 
   petList.innerHTML = mascotas.map((mascota, index) => {
     const cardType = index % 2 === 0 ? "pet-card-par" : "pet-card-inpar";
@@ -42,12 +38,12 @@ function mostrarMascotas(mascotas) {
         </div>
         <div class="pet-info">
           <h3 class="pet-name">${mascota.name_PetsMJC}</h3>
-          <p class="pet-raze">${mascota.fk_RacesMJC || "Sin raza"}</p>
+          <p class="pet-raze">${mascota.races.name_RacesMJC}</p>
         </div>
         <div class="buttons-options">
           <button><img src="../assets/icons/btn-show.svg" alt="Ver"></button>
           <button><img src="../assets/icons/btn-edit.svg" alt="Editar"></button>
-          <button onclick="eliminarMascota('${mascota.id_PetMJC}')">
+          <button onclick="eliminarMascota('${mascota.id_PetMJC}')')">
             <img src="../assets/icons/btn-delete.svg" alt="Eliminar">
           </button>
         </div>
