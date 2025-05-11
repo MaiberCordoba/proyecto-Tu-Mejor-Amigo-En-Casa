@@ -15,6 +15,14 @@
   }
 
   html, body {
+    background-color: #2c4674;
     height: 100%;
-    overflow: hidden;
+  }
+
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
