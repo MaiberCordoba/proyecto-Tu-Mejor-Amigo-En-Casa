@@ -12,10 +12,10 @@ async function postMJC(e) {
     e.preventDefault();
     
     // Validación
-    if (!nameInput.value.trim()) return alert('Ingrese nombre');
-    if (!raceSelect.value || raceSelect.value === 'default') return alert('Seleccione raza');
-    if (!categorySelect.value || categorySelect.value === 'default') return alert('Seleccione categoría');
-    if (!genderSelect.value || genderSelect.value === 'default') return alert('Seleccione género');
+    if (!nameInput.value) return alert('Ingrese nombre');
+    if (raceSelect.value.includes('Seleccione')) return alert('Seleccione raza');
+    if (categorySelect.value.includes('Seleccione')) return alert('Seleccione categoría');
+    if (genderSelect.value.includes('Seleccione')) return alert('Seleccione genero');
     if (!photoInput.files[0]) return alert('Seleccione una foto');
   
     const data = new FormData();
@@ -37,12 +37,12 @@ async function postMJC(e) {
       console.log('asdas',res)
       const response = await res.json();
       
-
       if (res.ok) {
-        alert ('mascota creada con exito'),
-        window.location.href = '/frontEnd/pages/list.html';
-      } else {
-        alert(`Error: ${response.message || 'Error desconocido'}`);
+        window.location.replace('/frontEnd/pages/list.html');
+      }
+      
+      if (!res.ok) {
+        alert(`Error: ${response.message || 'Error desconocido'}`)
       }
       
     } catch (error) {
@@ -51,7 +51,7 @@ async function postMJC(e) {
     }
   };
 
-// Cargar opciones básicas
+// Cargar opciones 
 async function cargarOpciones() {
   try {
     // Races 

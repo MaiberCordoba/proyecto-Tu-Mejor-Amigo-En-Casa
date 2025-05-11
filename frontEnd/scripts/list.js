@@ -9,6 +9,7 @@ async function cargarMascotas() {
     const mascotas = data["lista de mascotas"] ;
  
     mostrarMascotas(mascotas);
+    console.log(mascotas)
 
     
   } catch(error) {
@@ -43,7 +44,7 @@ function mostrarMascotas(mascotas) {
         <div class="buttons-options">
           <button><img src="../assets/icons/btn-show.svg" alt="Ver"></button>
           <button><img src="../assets/icons/btn-edit.svg" alt="Editar"></button>
-          <button onclick="eliminarMascota('${mascota.id_PetMJC}')')">
+          <button onclick="eliminarMascota('${mascota.id_PetMJC}')">
             <img src="../assets/icons/btn-delete.svg" alt="Eliminar">
           </button>
         </div>
