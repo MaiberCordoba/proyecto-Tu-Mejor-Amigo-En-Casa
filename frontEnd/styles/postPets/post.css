@@ -1,0 +1,106 @@
+  .container {
+    width: 87%;
+    margin: 40px auto;
+  }
+
+  .title {
+    margin: 0;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: 1.2;
+    color: white;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .btn-close {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .icon-back {
+    position: absolute;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .camera-button {
+    background: white;
+    border-radius: 100%;
+    padding: 20px;
+    border: 4px solid #8190ad;
+    width: 125px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .camera-button img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .form-container {
+    margin-top: 70px;
+    width: 100%;
+  }
+  
+  .post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .input-container input,
+  .input-container select,
+  select {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    background-color:  #97a2bb;
+    color: #333;
+  }
+  
+  .input-container.select select {
+    appearance: none;
+  }
+  
+  .input-container .input-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+  }
+  
+  .save-button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .save-button-container button img{
+    width: 100%;
+    height: 100%;
+  }

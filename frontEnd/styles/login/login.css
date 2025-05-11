@@ -1,3 +1,7 @@
+body{
+  overflow: hidden;
+  background-color: #ffff;
+}
 
 .container {
   min-height: 100dvh;
