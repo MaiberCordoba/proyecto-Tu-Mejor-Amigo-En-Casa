@@ -24,13 +24,13 @@
 
     <div class="add-button-container">
       <button class="camera-button">
-        <img src="../assets/icons/icon-camera.svg" alt="Agregar foto" />
+        <img src="../assets/icons/icon-camera-gris.svg" alt="Agregar foto" />
       </button>
     </div>
 
     <div class="form-container">
       <form id="post-form" class="post-form">
-        <div class="input-container">
+        <div class="input-container input">
           <input id="name" type="text" placeholder="Nombre" />
         </div>
 
@@ -49,8 +49,11 @@
         </div>
 
         <div class="input-container icon-input">
-          <input id="photo" name="photo" type="file" placeholder="Subir Foto" />
-          <img src="../assets/icons/icon-camera.svg" class="input-icon" alt="Subir" />
+            <input class='input-file' id="photo" name="photo" type="file" placeholder="Subir Foto" />
+            <img src="../assets/icons/icon-camera.svg" class="input-icon" alt="Subir" />
+            <label for="photo" class="input-label-file">
+                Subir Foto
+            </label>  
         </div>
 
         <div class="input-container select">

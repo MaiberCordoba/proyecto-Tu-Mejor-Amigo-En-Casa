@@ -40,7 +40,7 @@
     background: white;
     border-radius: 100%;
     padding: 20px;
-    border: 4px solid #8190ad;
+    border: 4px solid #96a2ba;
     width: 125px;
     height: 125px;
     display: flex;
@@ -64,7 +64,8 @@
     gap: 15px;
   }
   
-  .input-container {
+  .input-container, input::placeholder {
+    color: #2c4774;
     position: relative;
   }
   
@@ -76,8 +77,8 @@
     border: none;
     border-radius: 20px;
     font-size: 1rem;
-    background-color:  #97a2bb;
-    color: #333;
+    background-color:  #96a2ba;
+    color: #2c4774;
   }
   
   .input-container.select select {
@@ -103,4 +104,20 @@
   .save-button-container button img{
     width: 100%;
     height: 100%;
+  }
+
+  .input-file{
+    display: none;
+  }
+
+  .input-label-file {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    background-color: #97a2bb;
+    color: #2c4774;
+    display: inline-block;
+    cursor: pointer;
   }
