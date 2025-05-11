@@ -4,7 +4,7 @@ export const listPetsMJC = async (resp, res) => {
   try {
     const consultaMJC = await PrismaMJC.petMJC.findMany({
       include: {
-        races: {  // Asumiendo que la relación en tu schema.prisma se llama "race"
+        races: {  
           select: {
             name_RacesMJC: true
           }
@@ -64,25 +64,16 @@ export const patchPetsMJC = async (req, res) => {
   try {
     const { name, race, category, gender } = req.body;
 
-    // Verifica que se haya subido un archivo
-    if (!req.file) {
-      return res
-        .status(400)
-        .json({ message: "Se requiere una imagen de la mascota" });
-    }
-
-    const filename = req.file.filename;
-
     const consultaMJC = await PrismaMJC.petMJC.update({
       where: {
         id_PetMJC: parseInt(req.params.id),
       },
       data: {
-        name_PetsMJC: name,
-        fk_RacesMJC: parseInt(race),
-        fk_CategoriesMJC: parseInt(category),
-        fk_GendersMJC: parseInt (gender),
-        photoMJC: `/pets-photos/${filename}`,
+        ...(name && { name_PetsMJC: name }),  
+        ...(race && { fk_RacesMJC: parseInt(race) }),
+        ...(category && { fk_CategoriesMJC: parseInt(category) }),
+        ...(gender && { fk_GendersMJC: parseInt(gender) }),
+        ...(req.file && { photoMJC: `/pets-photos/${req.file.filename}` }),
       },
     });
     if (consultaMJC) {
