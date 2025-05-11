@@ -79,5 +79,10 @@ window.eliminarMascota = async function(id) {
   }
 };
 
+//crear pets
+function addPets(){
+  window.location.href = ('post.html')
+}
+
 
 document.addEventListener("DOMContentLoaded", cargarMascotas);
