@@ -74,7 +74,7 @@ async function cargarOpciones() {
 // Inicializar
 cargarOpciones();
 
-// Botón cerrar
-window.logoutPost = () => {
-  window.location.href = '/frontEnd';
-};
+// Boton volver
+window.backList = () => {
+    window.location.href = '/frontEnd'
+}
