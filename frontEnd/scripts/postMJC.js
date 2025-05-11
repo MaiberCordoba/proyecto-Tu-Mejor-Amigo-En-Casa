@@ -35,10 +35,11 @@ async function postMJC(e) {
         body: data
       });
       console.log('asdas',res)
-      const response = await res.json(); // Siempre parsear la respuesta
+      const response = await res.json();
       
 
       if (res.ok) {
+        alert ('mascota creada con exito'),
         window.location.href = '/frontEnd/pages/list.html';
       } else {
         alert(`Error: ${response.message || 'Error desconocido'}`);
