@@ -1,0 +1,19 @@
+.imgPets-container {
+    width: 152px;              
+    height: 153px;           
+    border-radius: 50%;       
+    border: 4px solid #96a2ba;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;         
+    position: relative;      
+  }
+  
+  .imgPets-container img {
+    width: 100%;           
+    height: 100%;            
+    object-fit: cover;       
+    display: block;
+  }

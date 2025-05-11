@@ -43,7 +43,9 @@ function mostrarMascotas(mascotas) {
         </div>
         <div class="buttons-options">
           <button><img src="../assets/icons/btn-show.svg" alt="Ver"></button>
-          <button><img src="../assets/icons/btn-edit.svg" alt="Editar"></button>
+          <button onclick="editarMascota('${mascota.id_PetMJC}')">
+            <img src="../assets/icons/btn-edit.svg" alt="Editar">
+          </button>
           <button onclick="eliminarMascota('${mascota.id_PetMJC}')">
             <img src="../assets/icons/btn-delete.svg" alt="Eliminar">
           </button>
@@ -81,5 +83,9 @@ function addPets(){
   window.location.href = ('post.html')
 }
 
+//editar Pets
+window.editarMascota = (id) => {
+  window.location.href = `/frontEnd/pages/patch.html?id=${id}`;
+}
 
 document.addEventListener("DOMContentLoaded", cargarMascotas);
