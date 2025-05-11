@@ -3,7 +3,7 @@ body{
   background-color: #ffff;
 }
 
-.container {
+.container-login {
   min-height: 100dvh;
   background-image: url('../../assets/icons/bg-login.svg');
   background-size: cover;

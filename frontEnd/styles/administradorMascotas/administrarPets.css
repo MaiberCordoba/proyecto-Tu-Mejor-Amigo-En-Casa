@@ -1,29 +1,4 @@
 
-body {
-  background-color: #2c4674;
-}
-
-.container {
-  width: 87%; 
-  margin: 30px auto; 
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; 
-}
-
-.title {
-  margin: 0;
-  font-size: clamp(1rem, 4vw, 1.5rem); /* Escalable pero con límites */
-  line-height: 1.2;
-  color: white;
-  text-align: center;
-  flex-grow: 1;
-}
-
 .btn-close {
   position: absolute;
   right: 0; 
