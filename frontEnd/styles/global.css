@@ -56,3 +56,13 @@
     border: none;
     cursor: pointer;
   }
+
+  /* espacio para imagen header*/
+
+  .add-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+    overflow: hidden;
+  }
