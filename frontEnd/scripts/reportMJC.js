@@ -100,6 +100,25 @@ async function cargarReporte2() {
   }
 }
 
+function descargarPDF() {
+  const btn = document.getElementById("btn-pdf");
+      btn.style.display = 'none';
+
+  const elemento = document.getElementById("reporte-container");
+  html2pdf()
+    .from(elemento)
+    .set({
+      margin: 0.5,
+      filename: 'reporte_mascotas.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    })
+    .save()
+    .then(() => {
+      btn.style.display = 'inline-block'; 
+    });
+}
 
 window.backList = () => {
     window.location.href = '/frontEnd/pages/list.html';
