@@ -43,7 +43,7 @@ async function cargarDatosMascota() {
     data.append('category', categorySelect.value);
     data.append('gender', genderSelect.value);
     
-    // Solo adjuntar foto si se seleccionó una nueva
+    // Solo adjunta foto si se seleccionó una nueva
     if (photoInput.files[0]) {
       data.append('photo', photoInput.files[0]);
     }
