@@ -107,5 +107,5 @@ async function cargarOpciones() {
 
 // Boton volver
 window.backList = () => {
-    window.location.href = '/frontEnd'
+    window.location.href = '/frontEnd/pages/list.html'
 }
