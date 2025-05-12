@@ -42,7 +42,9 @@ function mostrarMascotas(mascotas) {
           <p class="pet-raze">${mascota.races.name_RacesMJC}</p>
         </div>
         <div class="buttons-options">
-          <button><img src="../assets/icons/btn-show.svg" alt="Ver"></button>
+          <button onclick = "infoMascota('${mascota.id_PetMJC}')">
+          <img src="../assets/icons/btn-show.svg" alt="Ver">
+          </button>
           <button onclick="editarMascota('${mascota.id_PetMJC}')">
             <img src="../assets/icons/btn-edit.svg" alt="Editar">
           </button>
@@ -86,6 +88,11 @@ function addPets(){
 //editar Pets
 window.editarMascota = (id) => {
   window.location.href = `/frontEnd/pages/patch.html?id=${id}`;
+}
+
+//info Pets
+window.infoMascota = (id) => {
+  window.location.href = `/frontEnd/pages/infoMJC.html?id=${id}`;
 }
 
 document.addEventListener("DOMContentLoaded", cargarMascotas);
