@@ -10,11 +10,13 @@ body{
   background-position: center;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  position: relative; 
 }
 
 form {
-  margin-top: 65vh; 
+  position: absolute;
+  top: 87%; 
+  transform: translateY(-50%); 
   width: 90%;
   max-width: 400px;
   padding: 20px;
