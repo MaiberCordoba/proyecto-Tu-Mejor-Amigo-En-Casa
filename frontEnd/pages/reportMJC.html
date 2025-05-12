@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/report/report.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -53,7 +54,15 @@
                 <tbody></tbody>
             </table>
         
-            <button class="btn-download" onclick="descargarPDF()">Descargar PDF</button>
+            <button id="btn-pdf" class="btn-download" onclick="descargarPDF()">Descargar PDF</button>
+        </div>
+
+        <div class="container-graphics">
+            <h4>Gráfico Reporte 1</h4>
+            <canvas id="grafico-reporte-1"></canvas>
+                    
+            <h4>Gráfico Reporte 2</h4>
+            <canvas id="grafico-reporte-2"></canvas>
         </div>
 
     </div>
