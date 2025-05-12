@@ -29,6 +29,9 @@ data1.conteo_mascotas_adoptadas.forEach(item => {
   }
   
   function descargarPDF() {
+    const btn = document.getElementById("btn-pdf");
+        btn.style.display = 'none';
+
     const elemento = document.getElementById("reporte-container");
     html2pdf()
       .from(elemento)
@@ -39,7 +42,10 @@ data1.conteo_mascotas_adoptadas.forEach(item => {
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       })
-      .save();
+      .save()
+      .then(() => {
+        btn.style.display = 'inline-block'; 
+      });
   }
   
   document.addEventListener('DOMContentLoaded', cargarReportes);
