@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reportes</title>
     <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/report/report.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,7 +16,7 @@
                 <img src="../assets/icons/btn-back.svg" alt="Volver" />
             </button>
 
-            <h3 class="title">Consultar Mascota</h3>
+            <h3 class="title">Reportes Mascotas</h3>
         
             <button onclick="logout()" class="btn-close">
                 <img src="../assets/icons/btn-close.svg" alt="cerrar">
@@ -22,18 +24,38 @@
             
         </div>
 
-        <div class="add-button-container">
-            <div class="imgPets-container">
-                <img id="photo" src="../assets/pets/photo-lg-1.svg">
-            </div>
-        </div>
 
-        <div class="container-report">
-            <div>
-                <img src="../assets/icons/icon-reports.png" alt="">
-            </div>
+        <div class="container-report" id="reporte-container">
+            <h4>Reporte 1: Total mascotas adoptadas por categoría</h4>
+            <table id="tabla-reporte-1">
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Cantidad Adoptadas</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        
+            <h4>Reporte 2: Total mascotas por estado y categoría</h4>
+            <table id="tabla-reporte-2">
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Estado</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        
+            <button class="btn-download" onclick="descargarPDF()">Descargar PDF</button>
         </div>
+        
     </div>
+    <script src="../scripts/config.js"></script>
     <script src="../scripts/reportMJC.js"></script>
+    <script src="../scripts/token.js"></script>
+    
 </body>
 </html>
