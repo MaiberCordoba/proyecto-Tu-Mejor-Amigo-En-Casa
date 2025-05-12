@@ -1,4 +1,14 @@
 
+.icon-back {
+  background-color: white;       /* Fondo blanco */
+  border: none;                  /* Sin borde */
+  border-radius: 50%;            /* Forma redondeada (círculo si es cuadrado) */
+  padding: 7px;                 /* Espacio interno para que se vea bien el ícono */
+  cursor: pointer;              /* Cambia el cursor al pasar por encima */
+  display: inline-flex;         /* Alineación del ícono */
+  align-items: center;
+  justify-content: center;
+}
 
 .add-button-wrapper {
   display: flex;

@@ -85,6 +85,7 @@ function addPets(){
   window.location.href = ('post.html')
 }
 
+
 //editar Pets
 window.editarMascota = (id) => {
   window.location.href = `/frontEnd/pages/patch.html?id=${id}`;
@@ -93,6 +94,11 @@ window.editarMascota = (id) => {
 //info Pets
 window.infoMascota = (id) => {
   window.location.href = `/frontEnd/pages/infoMJC.html?id=${id}`;
+}
+
+//crear pets
+function onReport(){
+  window.location.href = ('reportMJC.html')
 }
 
 document.addEventListener("DOMContentLoaded", cargarMascotas);
