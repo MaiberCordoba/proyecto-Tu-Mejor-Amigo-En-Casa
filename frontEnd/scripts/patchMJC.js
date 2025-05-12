@@ -16,8 +16,8 @@ async function cargarDatosMascota() {
       console.log(mascota)
       // Llenar formulario
       nameInput.value = mascota.name_PetsMJC;
-      raceSelect.value = mascota.fk_RacesMJC;
-      categorySelect.value = mascota.fk_CategoryMJC; 
+      raceSelect.value = mascota.fk_CategoriesMJC;
+      categorySelect.value = mascota.fk_CategoriesMJC; 
       genderSelect.value = mascota.fk_GendersMJC;
 
       // Precargar imagen
@@ -93,15 +93,16 @@ async function cargarOpciones() {
   }
   
   // Inicialización
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async() => {
     if (!petId) {
       alert('Mascota no especificada');
       window.location.href = '/frontEnd/pages/list.html';
       return;
     }
     
-    cargarOpciones();
-    cargarDatosMascota();
+    await cargarOpciones();
+    await cargarDatosMascota();
+
     patchForm.addEventListener('submit', patchMJC);
   });
 
