@@ -8,6 +8,7 @@ import { router } from "./src/Routers/racesRouterMJC.js";
 import { routeCategory } from "./src/Routers/categoriesRouterMJC.js";
 import { routerGenders } from "./src/Routers/gendersRouterMJC.js";
 import { rutaUser } from "./src/Routers/usersRouterMJC.js";
+import { RouterReport } from "./src/Routers/reportesMJC.js";
 
 //inicializaciones
 const app = express()
@@ -30,6 +31,8 @@ app.use("/api",routeCategory)
 app.use("/api",routerGenders)
 //users
 app.use("/api",rutaUser)
+//reports
+app.use("/api",RouterReport)
 
 app.listen(3000,'192.168.1.104',()=>{
     console.log("3000")
