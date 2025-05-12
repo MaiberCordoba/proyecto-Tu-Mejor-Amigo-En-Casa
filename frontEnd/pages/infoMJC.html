@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info Pets</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/info/infoMJC.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <button class="icon-back" onclick="backList()">
+                <img src="../assets/icons/btn-back.svg" alt="Volver" />
+            </button>
+
+            <h3 class="title">Consultar Mascota</h3>
+        
+            <button class="btn-close">
+                <img src="../assets/icons/btn-close.svg" alt="cerrar">
+            </button>
+            
+        </div>
+
+        <div class="add-button-container">
+            <div class="imgPets-container">
+                <img id="photo-pet" src="../assets/pets/photo-lg-1.svg">
+            </div>
+        </div>
+
+        <div class="container-info">
+            <div class="container-inputs">
+                <img src="../assets/icons/info-name.svg" alt="">  
+                <span id="name" class="info-span name">Nombre </span>             
+            </div>
+
+            <div class="container-inputs">
+                <img src="../assets/icons/info-race.svg" alt="">   
+                <span id="race" class="info-span race">race  </span>              
+            </div>
+            
+            <div class="container-inputs">
+                <img src="../assets/icons/info-category.svg" alt="">               
+                <span id="category" class="info-span category">category dinámico</span>              
+            </div>
+            
+            <div class="container-inputs">
+                <img src="../assets/icons/info-gender.svg" alt="">               
+                <span id="gender" class="info-span gender">gender dinámico</span>              
+            </div>
+            
+            <div class="container-inputs">
+                <img src="../assets/icons/info-estado-01.png" alt="">               
+                <span id="nombre-mascota" class="info-span estado">estado dinámico</span>              
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/config.js"></script>
+    <script src="../scripts/token.js"></script>
+    <script src="../scripts/infoMJC.js"></script>
+</body>
+</html>

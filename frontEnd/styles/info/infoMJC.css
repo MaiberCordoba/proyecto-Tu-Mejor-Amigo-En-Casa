@@ -1,0 +1,69 @@
+.imgPets-container {
+    width: 152px;              
+    height: 153px;           
+    border-radius: 50%;       
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;         
+    position: relative;      
+  }
+  
+  .imgPets-container img {
+    width: 100%;           
+    height: 100%;            
+    object-fit: cover;       
+    display: block;
+  }
+
+  .container-info{
+    margin-top: 50px;
+    gap: 2rem; 
+  }
+
+  .container-inputs {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilo base para todos los spans */
+  .info-span {
+    position: absolute;
+    color: rgb(44, 71, 116,0.6);
+    font-weight: bold;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  
+  /* Posiciones span */
+  .name {
+    top: 45%;
+    left: 37%;
+    transform: translateY(-50%);
+  }
+  
+  .race {
+    top: 45%;
+    left: 37%;
+    transform: translateY(-50%);
+  }
+  
+  .category {
+    top: 45%;
+    left: 37%;
+    transform: translateY(-50%);
+  }
+  
+  .gender {
+    top: 45%;
+    left: 37%;
+    transform: translateY(-50%);
+  }
+  
+  .estado {
+    top: 45%;
+    left: 37%;
+    transform: translateY(-50%);
+  }
+  
