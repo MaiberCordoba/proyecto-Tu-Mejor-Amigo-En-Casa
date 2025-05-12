@@ -1,11 +1,21 @@
-async function cargarReportes() {
-    // Reporte 1
+document.addEventListener('DOMContentLoaded', () => {
+  cargarReporte1();
+  cargarReporte2();
+});
+
+async function cargarReporte1() {
+  try {
     const res1 = await fetch(`${API_URL}/api/report/1`);
     const data1 = await res1.json();
     const tbody1 = document.querySelector('#tabla-reporte-1 tbody');
   
     const labels1 = [];
     const cantidades1 = [];
+
+    if (data1.conteo_mascotas_adoptadas.length === 0) {
+      tbody1.innerHTML = '<tr><td colspan="4">No hay datos para mostrar</td></tr>';
+      return;
+    }
   
     data1.conteo_mascotas_adoptadas.forEach(item => {
       const fila = `<tr>
@@ -21,7 +31,6 @@ async function cargarReportes() {
       cantidades1.push(item.cantidad);
     });
   
-    // Gráfico Reporte 1
     new Chart(document.getElementById('grafico-reporte-1'), {
       type: 'bar',
       data: {
@@ -41,14 +50,24 @@ async function cargarReportes() {
         }
       }
     });
-  
-    // Reporte 2
+  } catch (error) {
+    console.error('Error cargando reporte 1:', error);
+  }
+}
+
+async function cargarReporte2() {
+  try {
     const res2 = await fetch(`${API_URL}/api/report/2`);
     const data2 = await res2.json();
     const tbody2 = document.querySelector('#tabla-reporte-2 tbody');
   
     const categoriasEstados = [];
     const cantidades2 = [];
+
+    if (data2.conteo_por_estado_y_categoria.length === 0) {
+      tbody2.innerHTML = '<tr><td colspan="3">No hay datos para mostrar</td></tr>';
+      return;
+    }
   
     data2.conteo_por_estado_y_categoria.forEach(item => {
       const fila = `<tr>
@@ -62,7 +81,6 @@ async function cargarReportes() {
       cantidades2.push(item.cantidad);
     });
   
-    // Gráfico Reporte 2
     new Chart(document.getElementById('grafico-reporte-2'), {
       type: 'pie',
       data: {
@@ -77,29 +95,11 @@ async function cargarReportes() {
         responsive: true
       }
     });
+  } catch (error) {
+    console.error('Error cargando reporte 2:', error);
   }
-  
-  function descargarPDF() {
-    const btn = document.getElementById("btn-pdf");
-        btn.style.display = 'none';
+}
 
-    const elemento = document.getElementById("reporte-container");
-    html2pdf()
-      .from(elemento)
-      .set({
-        margin: 0.5,
-        filename: 'reporte_mascotas.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-      })
-      .save()
-      .then(() => {
-        btn.style.display = 'inline-block'; 
-      });
-  }
-  
-  document.addEventListener('DOMContentLoaded', cargarReportes);
 
 window.backList = () => {
     window.location.href = '/frontEnd/pages/list.html';
