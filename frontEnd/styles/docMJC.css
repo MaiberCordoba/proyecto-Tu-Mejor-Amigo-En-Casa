@@ -1,0 +1,43 @@
+.container-doc {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+  
+  .container-doc h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .container-doc table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .container-doc td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    vertical-align: top;
+    word-break: break-word;
+  }
+  
+  .container-doc td:first-child {
+    font-weight: bold;
+    background: #eee;
+    width: 150px;
+  }
+  
+  .container-doc code,
+  .container-doc pre {
+    background: #eee;
+    padding: 4px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  
