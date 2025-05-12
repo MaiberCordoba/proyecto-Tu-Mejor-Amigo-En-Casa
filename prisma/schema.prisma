@@ -36,6 +36,8 @@ model PetMJC{
   name_PetsMJC String @db.VarChar(30)
   photoMJC String @db.VarChar(300)
   estadoMJC EstadoMJC @default(disponible)
+  latMJC  Float 
+  longMJC Float 
   fk_RacesMJC Int
   fk_CategoriesMJC Int
   fk_GendersMJC Int

@@ -24,7 +24,7 @@ export const listPetsMJC = async (resp, res) => {
 
 export const PostPetsMJC = async (req, res) => {
   try {
-    const { name, race, category, gender } = req.body;
+    const { name, race, category, gender,lat,long } = req.body;
 
     // Verifica que se haya subido un archivo
     if (!req.file) {
@@ -41,6 +41,8 @@ export const PostPetsMJC = async (req, res) => {
         fk_RacesMJC: parseInt(race),
         fk_CategoriesMJC: parseInt(category),
         fk_GendersMJC: parseInt(gender),
+        latMJC: parseFloat(lat),
+        longMJC: parseFloat(long),
         photoMJC: filePathMJC,
       },
     });
