@@ -117,6 +117,23 @@ export const getIdPetsMJC = async (req, res) => {
       where: {
         id_PetMJC: parseInt(req.params.id),
       },
+      include:{
+        races: {
+          select:{
+            name_RacesMJC:true
+          }
+        },
+        Genders: {
+          select:{
+            name_GendersMJC:true
+          }
+        },
+        categories: {
+          select:{
+            name_CategoriesMJC:true
+          }
+        }
+      },
     });
     if (consultaMJC) {
       return res.status(200).json(consultaMJC);
