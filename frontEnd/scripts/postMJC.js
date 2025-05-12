@@ -38,6 +38,7 @@ async function postMJC(e) {
       const response = await res.json();
       
       if (res.ok) {
+        alert('mascota creada con exito');
         window.location.replace('/frontEnd/pages/list.html');
       }
       

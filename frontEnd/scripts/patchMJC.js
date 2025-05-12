@@ -11,7 +11,12 @@ const photoPreview = document.getElementById('preview-photo');
 
 async function cargarDatosMascota() {
     try {
-      const response = await fetch(`${API_URL}/api/pets/${petId}`);
+      const response = await fetch(`${API_URL}/api/pets/${petId}`,{
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });;
       const mascota = await response.json();
       console.log(mascota)
       // Llenar formulario
@@ -75,7 +80,7 @@ async function cargarDatosMascota() {
 async function cargarOpciones() {
     try {
       // Races 
-      const razas = await (await fetch(`${API_URL}/api/races/`)).json();
+      const razas = await (await fetch(`${API_URL}/api/races/`,)).json();
       raceSelect.innerHTML += razas.data.map(race => `<option value="${race.id_RacesMJC}">${race.name_RacesMJC}</option>`);
       
       //categories

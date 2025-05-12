@@ -3,8 +3,12 @@ document.getElementById("pet-list").innerHTML = '...cargando';
 
 async function cargarMascotas() {
   try {
-    const response = await fetch(`${API_URL}/api/pets`);
-    
+    const response = await fetch(`${API_URL}/api/pets`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
     const data = await response.json();
     const mascotas = data["lista de mascotas"] ;
  
@@ -66,7 +70,11 @@ window.eliminarMascota = async function(id) {
 
   try {
     const response = await fetch(`${API_URL}/api/pets/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
     });
 
     if(response) {

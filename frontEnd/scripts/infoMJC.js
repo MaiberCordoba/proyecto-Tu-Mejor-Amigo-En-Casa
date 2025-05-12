@@ -11,7 +11,12 @@ const estadoSpan = document.getElementById('estado');
 
 async function infoMJC() {
     try {
-        const response = await fetch(`${API_URL}/api/pets/${petId}`);
+        const response = await fetch(`${API_URL}/api/pets/${petId}`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          });
         const mascota = await response.json();
 
         console.log(mascota);
