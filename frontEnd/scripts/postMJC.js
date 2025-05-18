@@ -6,6 +6,8 @@ const raceSelect = document.getElementById('race-select');
 const categorySelect = document.getElementById('category-select');
 const genderSelect = document.getElementById('gender-select');
 const photoInput = document.getElementById('photo');
+const latInput = document.getElementById('lat');
+const logInput = document.getElementById('log');
 
 // Enviar formulario
 async function postMJC(e) {
@@ -17,7 +19,9 @@ async function postMJC(e) {
     if (categorySelect.value.includes('Seleccione')) return alert('Seleccione categoría');
     if (genderSelect.value.includes('Seleccione')) return alert('Seleccione genero');
     if (!photoInput.files[0]) return alert('Seleccione una foto');
-  
+    if (!latInput.value) return alert('rellene el campo de latitud');
+    if (!logInput.value) return alert('rellene el campo de longitud');
+    
     const data = new FormData();
     // Nombres 
     data.append('name', nameInput.value);
@@ -25,6 +29,8 @@ async function postMJC(e) {
     data.append('category', categorySelect.value);
     data.append('gender', genderSelect.value);
     data.append('photo', photoInput.files[0]);
+    data.append('lat', latInput.value);
+    data.append('long', logInput.value);
   
     try {
       const res = await fetch(`${API_URL}/api/pets/`, {
