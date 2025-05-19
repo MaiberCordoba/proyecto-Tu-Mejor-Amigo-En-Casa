@@ -3,13 +3,23 @@ import { PrismaMJC } from "../dbMJC.js";
 export const listPetsMJC = async (resp, res) => {
   try {
     const consultaMJC = await PrismaMJC.petMJC.findMany({
-      include: {
-        races: {  
-          select: {
-            name_RacesMJC: true
+      include:{
+        races: {
+          select:{
+            name_RacesMJC:true
+          }
+        },
+        Genders: {
+          select:{
+            name_GendersMJC:true
+          }
+        },
+        categories: {
+          select:{
+            name_CategoriesMJC:true
           }
         }
-      }
+      },
     });
     if (consultaMJC.length > 0) {
       return res.status(200).json({ "lista de mascotas": consultaMJC });

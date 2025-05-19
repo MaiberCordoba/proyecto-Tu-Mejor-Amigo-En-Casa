@@ -34,6 +34,6 @@ app.use("/api",rutaUser)
 //reports
 app.use("/api",RouterReport)
 
-app.listen(3000,()=>{
+app.listen(3000,'192.168.50.198',()=>{
     console.log("3000")
 })

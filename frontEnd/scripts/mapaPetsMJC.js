@@ -27,7 +27,15 @@
         if (mascota.latMJC && mascota.longMJC) {
           L.marker([mascota.latMJC, mascota.longMJC])
             .addTo(map)
-            .bindPopup(`<strong>${mascota.name_PetsMJC}</strong>`);
+            .bindPopup(`<img class="imgPets-container" src="${API_URL}${mascota.photoMJC}" alt="cerrar">
+                        <strong>Nombre:${mascota.name_PetsMJC}</strong> 
+                       
+                        <strong>Raza:${mascota.races.name_RacesMJC}</strong> 
+                       
+                        <strong>Genero:${mascota.Genders.name_GendersMJC}</strong> 
+                      
+                        <strong>categoria:${mascota.categories.name_CategoriesMJC}</strong>
+                        `);
         }
       });
 
